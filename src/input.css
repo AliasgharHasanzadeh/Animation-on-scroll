@@ -1,0 +1,188 @@
+@import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Knewave&display=swap");
+* {
+  font-family: "Delius", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+body {
+  overflow-x: hidden;
+  /* background: #020024; */
+  background:linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%)
+}
+.grid{
+  row-gap: 200px;
+}
+.anibox {
+  width: 300px;
+  height: 200px;
+  background-color: #fab005;
+  transition: .4s;
+  display: flex;align-items: center;justify-content: center;font-size: 30px;
+  font-weight: 200;
+  border-radius: 10px;
+  border: 5px solid black;
+  &:nth-of-type(odd) {
+    /* transform: translateX(200px); */
+  }
+  &:nth-of-type(even) {
+    /* transform: translateX(-200px); */
+  }
+}
+.header-text {
+  position: relative;
+  width: 800px;
+  &::before {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    width: 60%;
+    height: 1px;
+    content: "";
+    background-color: #000;
+    transform: translateX(-50%);
+  }
+  &::after {
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    width: 60%;
+    height: 1px;
+    content: "";
+    background-color: #000;
+    transform: translateX(-50%);
+  }
+}
+.fadeLeft {
+  opacity: 0;
+  transform: translatex(-600px);
+}
+.fadeRight {
+  opacity: 0;
+  transform: translatex(600px);
+}
+.fadeUp {
+  opacity: 0;
+  transform: translateY(400px);
+}
+.fadeDown {
+  opacity: 0;
+  transform: translateY(-400px);
+}
+.flipLeft{
+  opacity: 0;
+  transform: perspective(800px) rotateY(-80deg);
+}
+.flipRight{
+  opacity: 0;
+  transform: perspective(800px) rotateY(80deg);
+}
+.flipUp{
+  opacity: 0;
+  transform: perspective(800px) rotateX(-80deg);
+}
+.flipDown{
+  opacity: 0;
+  transform: perspective(800px) rotateX(80deg);
+}
+.zoomUp{
+  scale: 0;
+  transform: translateY(-200px);
+}
+.zoomdown{
+  scale: 0;
+  transform: translateY(200px);
+}
+.zoomUp{
+  scale: 0;
+  transform: translateX(-200px);
+}
+.zoomRight{
+  scale: 0;
+  transform: translateX(200px);
+}
+/* fansy border styles */
+.fansy{
+  width: 150px;
+  height: 150px;
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+  background-color: #1c1c1c;
+  display: flex;align-items: center;justify-content: center;
+  border-radius: 54% 46% 65% 35% / 60% 25% 75% 40%  ;
+  animation-name: bg-image;
+  animation-duration: 4s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  &:hover{
+      >.social{
+          left: 100%;
+          opacity: 1;
+         transform: scale(1);
+      }
+      >p{
+          opacity: 1;
+          top: 80%;
+      }
+  }
+  >p{
+      width: 190px;
+      height: fit-content;
+      padding-block: 5px;
+      padding-inline: 10px;
+      background-color: gray;
+      text-align: center;
+      font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+      position: absolute;
+      top: 50%;
+      background-color: #1c1c1cbd;
+      color: white;
+      border-radius: 5px;
+      opacity: 0;
+      transition: 1s;
+      backdrop-filter: blur(10px);
+  }
+  >img{
+      width: 90%;height: 90%;
+      object-fit: cover;
+      border-radius: 51% 49% 17% 83% / 47% 28% 72% 53%  ;
+      animation: image;
+      animation-duration: 4s;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+  }
+  >.social{
+      position: absolute;
+      left: 50%;
+      display: flex;align-items: center;justify-content: center;
+      flex-direction: column;
+      opacity: 0;
+      transition: 1s;
+      transform: scale(0);
+   >a{
+      >svg{
+          fill: #1c1c1c;
+          width: 40px;
+          height: 40px;
+          &:hover{
+              transform: scale(1.3);
+          }
+      }
+   }
+  }
+}
+@keyframes image{
+  0%{border-radius: 51% 49% 17% 83% / 47% 28% 72% 53%  ;}
+  25%{border-radius: 65% 35% 39% 61% / 58% 16% 84% 42% ;}
+  50%{border-radius: 26% 74% 39% 61% / 58% 73% 27% 42% ;}
+  75%{border-radius: 51% 49% 17% 83% / 47% 28% 72% 53% ;}
+  100%{border-radius: 51% 49% 17% 83% / 47% 28% 72% 53%  ;}
+}
+@keyframes bg-image{
+  0%{border-radius: 54% 46% 65% 35% / 60% 25% 75% 40%  ;}
+  25%{border-radius: 36% 64% 23% 77% / 34% 49% 51% 66%  ;}
+  50%{border-radius: 66% 34% 67% 33% / 63% 30% 70% 37%  ;}
+  75%{border-radius: 38% 62% 21% 79% / 39% 53% 47% 61%  ;}
+  100%{border-radius: 54% 46% 65% 35% / 60% 25% 75% 40%  ;}
+}
